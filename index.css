@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#container{
+    margin: auto;
+    width: 540px;
+    height: 355px;
+    border: 1px solid #5FBF87;
+    display: grid;
+    grid-template-rows: 30px auto;    
+}
+#content{
+    margin: auto;
+}
+#relogio, #cronometro,#regressivo{
+    display: flex;
+    font-size: 40px;
+}
+#inputs{
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+#buttons{
+    display: flex;
+    justify-content: space-around;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: #6FCF97;
+    font-family: 'Nunito';
+}
+ul{
+    width: 100%;
+    align-items: center;
+    height: 30px;
+    display:grid;
+    grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+}
+li {
+    list-style: none;
+    background-color: #3BC274;
+    border: 1px solid #5FBF87;
+    border-top: none;
+    height: 30px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+li:hover{
+    box-shadow: 1px 1px 3px black;
+}
+li:first-child,li:last-child{
+    border-left: none;
+    border-right: none;
+}
+.clicked{
+    background-color: #27AE60;
+}
+li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    border: 1px solid #5FBF87;
+    background-color: #27ae5f2c;
+    padding: 2px 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    width: calc(100% / 3);
+    min-width: max-content;
+    font-size: 15px;
+    font-family: 'Nunito';
+}
+button:focus{
+    outline: none;
+}
+input{
+    width: 30px;
+    text-align: center;
+    appearance: text;
+}
+input::-webkit-inner-spin-button {
+    display: none;
+  }
