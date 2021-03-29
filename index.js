@@ -4,9 +4,11 @@ import { Relogio } from "./scripts/Relogio.js";
 const get = id => document.getElementById(id)
 
 class Regressivo{
-    hours = null
-    minutes = null
-    seconds = null
+    constructor({hours= 0, minutes=0, seconds=0}){
+        this.hours = hours
+        this.minutes = minutes
+        this.seconds = seconds
+    }
     init(){
 
     }
