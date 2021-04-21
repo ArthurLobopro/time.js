@@ -22,4 +22,5 @@ class Relogio {
     }
 }
 
+//module.exports = { Relogio }
 export { Relogio }

@@ -34,29 +34,41 @@ for (let e of list) {
 
 let relogio = new Relogio()
 relogio.init()
-let cronometro = new Cronometro()
+
 
 
 const mainButton = get('init')
 const resetButton = get('reset')
 
 const pausaCronometro = ()=>{
-    cronometro.pause()
-    mainButton.innerText = "Retomar"
-    mainButton.onclick = playCronometro
+    Cronometro.pause()
+    mainButton.innerText = "Reiniciar"
+    mainButton.onclick = () => {
+        Cronometro.end()
+        initCronometro()
+    }
     resetButton.style.display = ""
 }
-const playCronometro = () =>{
-    cronometro.init()
-    mainButton.innerText = "Pause"
+
+// const playCronometro = () => {
+//     Cronometro.play()
+//     mainButton.innerText = "Pause"
+//     mainButton.onclick = pausaCronometro
+//     resetButton.style.display = "none"
+// }
+
+const initCronometro = () =>{
+    Cronometro.init()
+    mainButton.innerText = "Parar"
     mainButton.onclick = pausaCronometro
     resetButton.style.display = "none"
 }
 
-mainButton.onclick = playCronometro
+mainButton.onclick = initCronometro
+
 resetButton.onclick = ()=> {
-    cronometro.end()
-    cronometro.updateTime()
+    Cronometro.end()
+    Cronometro.updateTime()
     mainButton.innerHTML = "Iniciar"
     resetButton.style.display="none"
 }
