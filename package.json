@@ -2,7 +2,7 @@
     "author": "Arthur Lobo",
     "version": "1.0.0",
     "description": "Programa de relógio simples.",
-    "main": "main.js",
+    "main": "electron/main.js",
     "scripts": {
         "start": "electron ."
     },
