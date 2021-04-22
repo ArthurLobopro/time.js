@@ -1,19 +1,15 @@
 import { Cronometro } from "./scripts/Cronometro.js";
 import { Relogio } from "./scripts/Relogio.js";
+import { Regressivo } from "./scripts/Regressivo.js";
 
 const get = id => document.getElementById(id)
 
-class Regressivo{
-    constructor({hours= 0, minutes=0, seconds=0}){
-        this.hours = hours
-        this.minutes = minutes
-        this.seconds = seconds
-    }
-    init(){
+const relogio = new Relogio()
+relogio.init()
 
-    }
-}
+//Detecção de eventos
 
+//Menu de funções
 const list = document.querySelectorAll("li")
 for (let e of list) {
     e.onclick = event => {
@@ -28,47 +24,66 @@ for (let e of list) {
             e.classList.remove('clicked')
         }
         event.target.classList.add("clicked")
-        get('buttons').style.display = (name != 'relogio') ? "" : "none"
     }
 }
 
-let relogio = new Relogio()
-relogio.init()
-
-
-
-const mainButton = get('init')
-const resetButton = get('reset')
+//Cronometro
+const croMainButton = get('cro-init')
+const croResetButton = get('cro-reset')
 
 const pausaCronometro = ()=>{
     Cronometro.pause()
-    mainButton.innerText = "Reiniciar"
-    mainButton.onclick = () => {
+    croMainButton.innerText = "Reiniciar"
+    croMainButton.onclick = () => {
         Cronometro.end()
         initCronometro()
     }
-    resetButton.style.display = ""
+    croResetButton.style.display = ""
 }
 
 // const playCronometro = () => {
 //     Cronometro.play()
-//     mainButton.innerText = "Pause"
-//     mainButton.onclick = pausaCronometro
-//     resetButton.style.display = "none"
+//     croMainButton.innerText = "Pause"
+//     croMainButton.onclick = pausaCronometro
+//     croResetButton.style.display = "none"
 // }
 
 const initCronometro = () =>{
     Cronometro.init()
-    mainButton.innerText = "Parar"
-    mainButton.onclick = pausaCronometro
-    resetButton.style.display = "none"
+    croMainButton.innerText = "Parar"
+    croMainButton.onclick = pausaCronometro
+    croResetButton.style.display = "none"
 }
 
-mainButton.onclick = initCronometro
+croMainButton.onclick = initCronometro
 
-resetButton.onclick = ()=> {
+croResetButton.onclick = ()=> {
     Cronometro.end()
     Cronometro.updateTime()
-    mainButton.innerHTML = "Iniciar"
-    resetButton.style.display="none"
+    croMainButton.innerHTML = "Iniciar"
+    croResetButton.style.display="none"
 }
+
+//Regressivo
+const regMainButton = get("reg-init")
+const regDisplayTime = get("reg-time")
+const regInputs = get("reg-inputs")
+
+const regInit = () => {
+    Regressivo.init()
+    regInputs.style.display = "none"
+    regDisplayTime.style.display = ""
+    regMainButton.innerText = "Pausar"
+    regMainButton.onclick = regPause 
+}
+const regPause = () => {
+    Regressivo.pause()
+    regMainButton.innerText = "Continuar"
+    regMainButton.onclick = regPlay
+}
+const regPlay = () => {
+    Regressivo.play()
+    regMainButton.innerText = "Pausar"
+    regMainButton.onclick = regPause
+}
+regMainButton.onclick = regInit
