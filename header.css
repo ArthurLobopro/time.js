@@ -1,3 +1,4 @@
+@import url(public/css/fonts/Nunito-Regular.css);
 #electron-header {
   padding: 0 5px;
   position: fixed;
@@ -54,6 +55,10 @@
 #electron-header .left #window-icon > img {
   width: 100%;
   height: 100%;
+}
+
+#electron-header .left #window-name {
+  font-family: "Nunito";
 }
 
 #electron-header > .right {
