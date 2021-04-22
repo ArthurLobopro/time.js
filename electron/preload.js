@@ -34,14 +34,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
     }
 
     const minimize_btn = get("minimize")
-    minimize_btn.onclick = ()=> { 
-        ipcRenderer.send('minimize') 
-    }
+    minimize_btn.onclick = ()=> ipcRenderer.send('minimize') 
 
     const maxime_btn = get("expand")
-    maxime_btn.onclick = () => {
-        ipcRenderer.send('expand')
-    }
+    maxime_btn.onclick = () => ipcRenderer.send('expand')
+
     const close_btn = get("close")
     close_btn.onclick = () => ipcRenderer.send('close')
 
