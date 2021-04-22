@@ -15,7 +15,7 @@ function mainWindow() {
         minHeight: 400,
         offscreen: true,
         frame: false,
-        icon: Path.join(__dirname,"../assets/headerIcon.png"),
+        icon: Path.join(__dirname,"../assets/icon32.png"),
         webPreferences:{
             nodeIntegration: true,
             preload: Path.join(__dirname, 'preload.js')
