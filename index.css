@@ -1,3 +1,4 @@
+@import url(public/css/fonts/Nunito-Regular.css);
 *{
     padding: 0;
     margin: 0;
@@ -17,17 +18,22 @@
 }
 #relogio, #cronometro,#regressivo{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     font-size: 40px;
     user-select: none;
 }
-#inputs{
+#reg-inputs{
     display: flex;
     font-size: 14px;
     margin-bottom: 5px;
 }
-#buttons{
+.buttons{
     display: flex;
     justify-content: space-around;
+}
+.flex{
+    display: flex;
 }
 body{
     width: 100vw;

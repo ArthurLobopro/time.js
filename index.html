@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,27 +19,39 @@
         </div>
         <div id="content">
             <div id="relogio">
-                <span id="rel-hours">00</span>:
-                <span id="rel-minutes">00</span>:
-                <span id="rel-seconds">00</span>
+                <div class="flex">
+                    <span id="rel-hours">00</span>:
+                    <span id="rel-minutes">00</span>:
+                    <span id="rel-seconds">00</span>
+                </div>
             </div>
             <div id="cronometro" style="display: none;">
-                <span id="cro-hours">00</span>:
-                <span id="cro-minutes">00</span>:
-                <span id="cro-seconds">00</span>:
-                <span id="cro-miliseconds">00</span>
+                <div class="flex">
+                    <span id="cro-hours">00</span>:
+                    <span id="cro-minutes">00</span>:
+                    <span id="cro-seconds">00</span>:
+                    <span id="cro-miliseconds">000</span> <br>
+                </div>
+                <div class="buttons">
+                    <button id="cro-init">Iniciar</button>
+                    <button id="cro-reset" style="display: none;">Zerar</button>
+                </div>
             </div>
             <div id="regressivo" style="display: none;">
-                <!-- <div id="inputs">
-                    <input type="number" placeholder="H" id="">:
-                    <input type="number" placeholder="M" id="">:
-                    <input type="number" placeholder="S" id="">
-                </div> -->
-                Indisponível no momento
-            </div>
-            <div id="buttons" style="display: none;">
-                <button id="init">Iniciar</button>
-                <button id="reset" style="display: none;">Zerar</button>
+                <div id="reg-inputs">
+                    <input type="number" placeholder="H" id="reg-h">:
+                    <input type="number" placeholder="M" id="reg-m">:
+                    <input type="number" placeholder="S" id="reg-s">
+                </div>
+                <div id="reg-time" class="flex" style="display: none;">
+                    <span id="reg-hours">00</span>:
+                    <span id="reg-minutes">00</span>:
+                    <span id="reg-seconds">00</span>
+                </div>
+                <div class="buttons">
+                    <button id="reg-init">Iniciar</button>
+                    <button id="reg-reset" style="display: none;">Zerar</button>
+                </div>
             </div>
         </div>
         
