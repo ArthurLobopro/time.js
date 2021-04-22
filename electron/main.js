@@ -1,10 +1,6 @@
 const {app, BrowserWindow, ipcMain} = require("electron")
 const Path = require('path')
 
-require("electron-reload")(__dirname, {
-    electron: require(`${__dirname}/../node_modules/electron`),
-});
-
 let win
 function mainWindow() {
 
@@ -58,3 +54,8 @@ ipcMain.on('close',(event,arg) => {
     const win = BrowserWindow.getFocusedWindow()
     win.close()
 })
+
+// Faz com que o programa não inicie várias vezes durante a instalação
+if (require('electron-squirrel-startup')){
+    return app.quit();
+}

@@ -1,24 +1,67 @@
 const get = id => document.getElementById(id)
 const formatTime = time => String(time).padStart(2, '0')
 
+//Controladores
+const regMainButton = get("reg-init")
+const regDisplayTime = get("reg-time")
+const regInputs = get("reg-inputs")
+const regH = get("reg-h")
+const regM = get("reg-m")
+const regS = get("reg-s")
+
+const regInit = () => {
+   
+    if(Number(regH.value) + Number(regM.value) + Number(regS.value) == 0){
+        alert("Informe um tempo para iniciar")
+    }else{
+        Regressivo.init()
+        regInputs.style.display = "none"
+        regDisplayTime.style.display = ""
+        regMainButton.innerText = "Pausar"
+        regMainButton.onclick = regPause
+    }
+}
+const regPause = () => {
+    Regressivo.pause()
+    regMainButton.innerText = "Continuar"
+    regMainButton.onclick = regPlay
+}
+const regPlay = () => {
+    Regressivo.play()
+    regMainButton.innerText = "Pausar"
+    regMainButton.onclick = regPause
+}
+const newreg = () => {
+    regDisplayTime.classList.remove("pisc")
+    regInputs.style.display = ""
+    regDisplayTime.style.display = "none"
+    regMainButton.innerText = "Iniciar"
+    regMainButton.onclick = regInit
+}
+regMainButton.onclick = regInit
+
 const Regressivo = {
     dateInit: null,
     dateEnd: null,
     diference: 0,
     interval: null,
     init(){
-        const hours = Number(get("reg-h").value) * ( 60 * 60 * 1000)
-        const minutes = Number(get("reg-m").value) * (60 * 1000)
-        const seconds = Number(get("reg-s").value) * 1000
+        const hours = Number(regH.value) * ( 60 * 60 * 1000)
+        const minutes = Number(regM.value) * (60 * 1000)
+        const seconds = Number(regS.value) * 1000
         const time_to_ms = hours + minutes + seconds
+
         this.dateInit = new Date() - 0
         this.dateEnd = this.dateInit + time_to_ms
         this.diference = (new Date(this.dateInit) - new Date(this.dateEnd)) * -1
         this.updateView()
         this.interval = setInterval(() => {
-            this.diference -= 1000
-            this.updateView()
-        }, 1000);
+        this.diference -= 1000
+        this.updateView()
+        if(this.diference <= 0){
+            this.end()
+        }
+    }, 1000);        
     },
     updateView(){
         const oneHour = 60 * 60 * 1000
@@ -60,8 +103,16 @@ const Regressivo = {
         this.interval = setInterval(() => {
             this.diference -= 1000
             this.updateView()
+            if(this.diference <= 0){
+                this.end()
+            }
         }, 1000);
-
+    },
+    end(){
+        clearInterval(this.interval)
+        regDisplayTime.classList.add("pisc")
+        regMainButton.innerText = "Nova contagem"
+        regMainButton.onclick = newreg
     }
 }
 export { Regressivo }
