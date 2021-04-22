@@ -25,7 +25,7 @@
 }
 #reg-inputs{
     display: flex;
-    font-size: 14px;
+    font-size: 21px;
     margin-bottom: 5px;
 }
 .buttons{
@@ -92,10 +92,20 @@ button:focus{
     outline: none;
 }
 input{
-    width: 30px;
+    width: 50px;
+    font-size: 20px;
     text-align: center;
     appearance: text;
 }
 input::-webkit-inner-spin-button {
     display: none;
-  }
+}
+.pisc{
+    animation: 1s linear infinite pisc;
+    color: red;
+}
+@keyframes pisc {
+    50% {
+        opacity: 0;
+    }
+}
