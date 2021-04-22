@@ -63,27 +63,3 @@ croResetButton.onclick = ()=> {
     croMainButton.innerHTML = "Iniciar"
     croResetButton.style.display="none"
 }
-
-//Regressivo
-const regMainButton = get("reg-init")
-const regDisplayTime = get("reg-time")
-const regInputs = get("reg-inputs")
-
-const regInit = () => {
-    Regressivo.init()
-    regInputs.style.display = "none"
-    regDisplayTime.style.display = ""
-    regMainButton.innerText = "Pausar"
-    regMainButton.onclick = regPause 
-}
-const regPause = () => {
-    Regressivo.pause()
-    regMainButton.innerText = "Continuar"
-    regMainButton.onclick = regPlay
-}
-const regPlay = () => {
-    Regressivo.play()
-    regMainButton.innerText = "Pausar"
-    regMainButton.onclick = regPause
-}
-regMainButton.onclick = regInit
