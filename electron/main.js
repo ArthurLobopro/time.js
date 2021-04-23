@@ -1,5 +1,8 @@
-const {app, BrowserWindow, ipcMain} = require("electron")
+const { app, BrowserWindow } = require("electron")
 const Path = require('path')
+
+//Ações de Minimizar, fechar, maximizar
+require("./header-actions-main.js")
 
 let win
 function mainWindow() {
@@ -34,25 +37,6 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         mainWindow()
     }
-})
-
-ipcMain.on('minimize',(event,arg)=>{
-    const win = BrowserWindow.getFocusedWindow()
-    win.minimize()
-})
-
-ipcMain.on('expand', (event,arg) => {
-    const win = BrowserWindow.getFocusedWindow()
-    if(win.isMaximized()){
-        win.restore()
-    }else{
-        win.maximize()
-    }
-})
-
-ipcMain.on('close',(event,arg) => {
-    const win = BrowserWindow.getFocusedWindow()
-    win.close()
 })
 
 // Faz com que o programa não inicie várias vezes durante a instalação
