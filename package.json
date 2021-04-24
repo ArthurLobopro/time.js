@@ -33,7 +33,10 @@
           "config": {
             "name": "time.js",
             "setupIcon": "./build/icon.ico",
-            "iconURL": "./build/icon.ico"
+            "iconURL": "./build/icon.ico",
+            "noMsi": false,
+            "setupMsi": "${name}-${version}-setup.msi",
+            "setupExe": "${name}-${version}-setup.exe"
           }
         },
         {
