@@ -33,20 +33,17 @@ const croResetButton = get('cro-reset')
 
 const pausaCronometro = ()=>{
     Cronometro.pause()
-    croMainButton.innerText = "Reiniciar"
-    croMainButton.onclick = () => {
-        Cronometro.end()
-        initCronometro()
-    }
+    croMainButton.innerText = "Play"
+    croMainButton.onclick = playCronometro
     croResetButton.style.display = ""
 }
 
-// const playCronometro = () => {
-//     Cronometro.play()
-//     croMainButton.innerText = "Pause"
-//     croMainButton.onclick = pausaCronometro
-//     croResetButton.style.display = "none"
-// }
+const playCronometro = () => {
+    Cronometro.play()
+    croMainButton.innerText = "Pause"
+    croMainButton.onclick = pausaCronometro
+    croResetButton.style.display = "none"
+}
 
 const initCronometro = () =>{
     Cronometro.init()
@@ -59,7 +56,6 @@ croMainButton.onclick = initCronometro
 
 croResetButton.onclick = ()=> {
     Cronometro.end()
-    Cronometro.updateTime()
     croMainButton.innerHTML = "Iniciar"
     croResetButton.style.display="none"
 }
