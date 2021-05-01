@@ -22,7 +22,7 @@ const Cronometro = {
         const oneMinute = 60 * 1000
         const oneSecond = 1000
 
-        let diference = new Date() - this.start
+        let diference = new Date() - this.start - this.pausedTime
 
         let hours = Math.trunc(diference / oneHour)
         diference -= hours * oneHour
@@ -50,14 +50,14 @@ const Cronometro = {
     // Pause e play em testes
     pause(){
         clearInterval(this.interval)
-        this.pausedTime = 0
         this.pausedStart = new Date()
-        this.interval = setInterval(() => {
-            this.pausedTime = new Date() - this.pausedStart 
-        }, 1);
+        // this.interval = setInterval(() => {
+        //     this.pausedTime = new Date() - this.pausedStart 
+        // }, 1);
     },
     play(){
-        clearInterval(this.interval)
+        //clearInterval(this.interval)
+        this.pausedTime += new Date() - this.pausedStart 
         this.pausedStart = 0
         this.interval = setInterval(() => {
             this.updateTime()
@@ -67,10 +67,14 @@ const Cronometro = {
     end(){
         clearInterval(this.interval)
         this.pausedTime = 0
+        this.pausedStart = 0
+        this.start = 0
+
         this.miliseconds = 0
         this.seconds = 0
         this.minutes = 0
         this.hours = 0
+        
         this.updateView()
     }
 }
