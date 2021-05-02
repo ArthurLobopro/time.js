@@ -76,6 +76,7 @@ li{
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
 }
 button{
     border: 1px solid #5FBF87;
