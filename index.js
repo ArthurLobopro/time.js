@@ -47,7 +47,7 @@ const playCronometro = () => {
 
 const initCronometro = () =>{
     Cronometro.init()
-    croMainButton.innerText = "Parar"
+    croMainButton.innerText = "Pausar"
     croMainButton.onclick = pausaCronometro
     croResetButton.style.display = "none"
 }
