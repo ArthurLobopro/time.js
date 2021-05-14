@@ -13,6 +13,19 @@
     grid-template-rows: 30px auto;   
     border-radius: 3px; 
 }
+#menu{
+    border-radius: 3px 3px 0 0;
+    margin: -1px -1px 0 -1px;
+}
+#menu ul{
+    border-radius: 3px 3px 0 0;
+}
+#menu ul li:first-child{
+    border-top-left-radius: 3px;
+}
+#menu ul li:last-child{
+    border-top-right-radius: 3px;
+}
 #content{
     margin: auto;
 }
