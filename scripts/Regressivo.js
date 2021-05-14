@@ -3,11 +3,24 @@ const formatTime = time => String(time).padStart(2, '0')
 
 //Controladores
 const regMainButton = get("reg-init")
+const regResetButton = get("reg-reset")
 const regDisplayTime = get("reg-time")
 const regInputs = get("reg-inputs")
 const regH = get("reg-h")
 const regM = get("reg-m")
 const regS = get("reg-s")
+const spanHours = get('reg-hours')
+const spanMinutes = get('reg-minutes')
+const spanSeconds = get('reg-seconds')
+
+regResetButton.onclick = () =>{
+    Regressivo.reset()
+    regInputs.style.display = ""
+    regResetButton.style.display = "none"
+    regDisplayTime.style.display = "none"
+    regMainButton.innerText = "Iniciar"
+    regMainButton.onclick = regInit
+}
 
 const regInit = () => {
    
@@ -19,6 +32,7 @@ const regInit = () => {
         regDisplayTime.style.display = ""
         regMainButton.innerText = "Pausar"
         regMainButton.onclick = regPause
+        regResetButton.style.display = ""
     }
 }
 const regPause = () => {
@@ -76,9 +90,6 @@ const Regressivo = {
         diference-= minutes * oneMinute
         let seconds = Math.trunc(diference / oneSecond);
 
-        const spanHours = get('reg-hours')
-        const spanMinutes = get('reg-minutes')
-        const spanSeconds = get('reg-seconds')
         spanHours.innerText = formatTime(hours)
         spanMinutes.innerText = formatTime(minutes)
         spanSeconds.innerText = formatTime(seconds)
@@ -111,6 +122,15 @@ const Regressivo = {
     end(){
         clearInterval(this.interval)
         regDisplayTime.classList.add("pisc")
+        regMainButton.innerText = "Nova contagem"
+        regMainButton.onclick = newreg
+        regResetButton.style.display = "none"
+    },
+    reset(){
+        clearInterval(this.interval)
+        spanHours.innerText = "00"
+        spanMinutes.innerText = "00"
+        spanSeconds.innerText = "00"
         regMainButton.innerText = "Nova contagem"
         regMainButton.onclick = newreg
     }
