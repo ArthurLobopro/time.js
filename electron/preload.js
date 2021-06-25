@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', ()=> {
 
-    require("./header-actions-renderer.js")
+    require("./header/header-actions-renderer.js")
 
 })

@@ -2,7 +2,7 @@ const { app, BrowserWindow } = require("electron")
 const Path = require('path')
 
 //Ações de Minimizar, fechar, maximizar
-require("./header-actions-main.js")
+require("./header/header-actions-main.js")
 
 let win
 function mainWindow() {
