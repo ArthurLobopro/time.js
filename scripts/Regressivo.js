@@ -1,3 +1,4 @@
+import alert from "./browser-functions/alert.js"
 const get = id => document.getElementById(id)
 const formatTime = time => String(time).padStart(2, '0')
 
@@ -25,7 +26,7 @@ regResetButton.onclick = () =>{
 const regInit = () => {
    
     if(Number(regH.value) + Number(regM.value) + Number(regS.value) == 0){
-        alert("Informe um tempo para iniciar")
+        alert({title: "Erro!", text:"Informe um tempo para iniciar."})
     }else{
         Regressivo.init()
         regInputs.style.display = "none"

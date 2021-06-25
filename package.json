@@ -1,7 +1,7 @@
 {
   "name": "time.js",
   "author": "Arthur Lobo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Programa de relógio simples.",
   "main": "electron/main.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^12.0.11",
+    "electron": "^12.0.12",
     "electron-reload": "^1.5.0"
   },
   "config": {
