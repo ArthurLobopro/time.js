@@ -4,16 +4,15 @@ import Path from 'path'
 //Ações de Minimizar, fechar, maximizar
 require("./header/header-actions-main.js")
 
-let win
 function mainWindow() {
 
-    win = new BrowserWindow({
+    const win = new BrowserWindow({
         minWidth: 600,
         width: 600,
         height: 400,
         minHeight: 400,
         frame: false,
-        icon: Path.join(__dirname,"../assets/icon32.png"),
+        icon: Path.resolve( app.getAppPath(),"assets/icon32.png"),
         webPreferences:{
             nodeIntegration: true,
             preload: Path.join(__dirname, 'preload.js')
@@ -21,7 +20,7 @@ function mainWindow() {
     })
     //win.setMenu(null)
     win.setMenuBarVisibility(false)
-    win.loadFile('index.html')
+    win.loadFile(Path.resolve(app.getAppPath(), 'public', 'index.html'))
 }
 
 app.whenReady().then(mainWindow)
