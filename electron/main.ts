@@ -38,6 +38,9 @@ app.on('activate', () => {
     }
 })
 
+ipcMain.on('request-app-path', (event,arg) => {
+    event.returnValue = app.getAppPath()
+})
 
 // Faz com que o programa não inicie várias vezes durante a instalação
 if (require('electron-squirrel-startup')){
