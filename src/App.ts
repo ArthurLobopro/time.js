@@ -1,8 +1,8 @@
-import { Cronometro } from "./scripts/Cronometro.js";
-import { Relogio } from "./scripts/Relogio.js";
-import { Regressivo } from "./scripts/Regressivo.js";
+import { Cronometro } from "./Cronometro"
+import { Relogio } from "./Relogio";
+import "./Regressivo"
 
-const get = id => document.getElementById(id)
+const get = (id: string) => document.getElementById(id) as HTMLElement
 
 const relogio = new Relogio()
 relogio.init()
@@ -10,28 +10,26 @@ relogio.init()
 //Detecção de eventos
 
 //Menu de funções
-const list = document.querySelectorAll("li")
+const list = document.querySelectorAll("li") as any
 for (let e of list) {
-    e.onclick = event => {
-        const view = [get("relogio"),get("cronometro"),get("regressivo")]
-        for(let e of view){ 
-            e.style.display="none" 
-        }
+    e.onclick = (event: any) => {
+        const view = [get("relogio"), get("cronometro"), get("regressivo")]
+        view.forEach( (el: any) => el.style.display = "none")
         const name = event.target.dataset.name
-        const element = get(name)
-        element.style.display= ""
-        for(let e of list){
+        const element = get(name) as any
+        element.style.display = ""
+        for (let e of list) {
             e.classList.remove('clicked')
         }
         event.target.classList.add("clicked")
     }
 }
 
-//Cronometro
+Cronometro
 const croMainButton = get('cro-init')
 const croResetButton = get('cro-reset')
 
-const pausaCronometro = ()=>{
+const pausaCronometro = () => {
     Cronometro.pause()
     croMainButton.innerText = "Play"
     croMainButton.onclick = playCronometro
@@ -45,7 +43,7 @@ const playCronometro = () => {
     croResetButton.style.display = "none"
 }
 
-const initCronometro = () =>{
+const initCronometro = () => {
     Cronometro.init()
     croMainButton.innerText = "Pausar"
     croMainButton.onclick = pausaCronometro
@@ -54,8 +52,8 @@ const initCronometro = () =>{
 
 croMainButton.onclick = initCronometro
 
-croResetButton.onclick = ()=> {
+croResetButton.onclick = () => {
     Cronometro.end()
     croMainButton.innerHTML = "Iniciar"
-    croResetButton.style.display="none"
+    croResetButton.style.display = "none"
 }
