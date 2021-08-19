@@ -15,9 +15,6 @@ function init(){
     const header = make_header()
     document.body.appendChild(header)
 
-    // const windowNameLabel = get("window-name")
-    // windowNameLabel.innerText = document.head.title
-
     const links = document.querySelectorAll("link")
     for(let e of links){
         if(e.rel.search("icon") !== -1){
