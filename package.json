@@ -3,7 +3,7 @@
   "author": "Arthur Lobo",
   "version": "1.0.1",
   "description": "Programa de relógio simples.",
-  "main": "electron/main.js",
+  "main": "./dist/electron/main.js",
   "scripts": {
     "start": "tsc && electron-forge start",
     "package": "electron-forge package",
@@ -19,14 +19,16 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^13.1.4",
-    "electron-reload": "^1.5.0",
+    "electron": "^13.2.1",
     "typescript": "^4.3.5"
   },
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./build/icon.ico"
+        "icon": "./build/icon.ico",
+        "ignore": [
+          "*.ts"
+        ]
       },
       "makers": [
         {
