@@ -1,8 +1,8 @@
-const get = id => document.getElementById(id)
-const formatTime = time => String(time).padStart(2, '0')
+const get = (id: string) => document.getElementById(id) as HTMLElement
+const formatTime = (time: string | number) => String(time).padStart(2, '0')
 
 class Relogio {
-    interval = null
+    interval:  any = null
     init(){
        this.interval = setInterval(() => {
             this.updateTime()

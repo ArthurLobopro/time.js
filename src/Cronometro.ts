@@ -1,7 +1,24 @@
-const get = id => document.getElementById(id)
-const formatTime = time => String(time).padStart(2, '0')
+const get = (id: string) => document.getElementById(id)
+const formatTime = (time: any) => String(time).padStart(2, '0')
 
-const Cronometro = {
+interface Cronometro {
+    miliseconds: number
+    seconds: number
+    minutes: number
+    hours: number
+    start:  Date | number | null
+    pausedStart: number | Date
+    pausedTime: number
+    interval: any
+    init: VoidFunction,
+    updateTime: VoidFunction
+    updateView: VoidFunction
+    pause: VoidFunction
+    play: VoidFunction
+    end: VoidFunction
+}
+
+const Cronometro: Cronometro = {
     miliseconds: 0,
     seconds:  0,
     minutes: 0,
@@ -22,7 +39,7 @@ const Cronometro = {
         const oneMinute = 60 * 1000
         const oneSecond = 1000
 
-        let diference = new Date() - this.start - this.pausedTime
+        let diference = Number(new Date()) - Number(this.start) - this.pausedTime
 
         let hours = Math.trunc(diference / oneHour)
         diference -= hours * oneHour
@@ -38,10 +55,10 @@ const Cronometro = {
         this.hours = hours
     },
     updateView(){
-        const spanHours = get('cro-hours')
-        const spanMinutes = get('cro-minutes')
-        const spanSeconds = get('cro-seconds')
-        const spanMiliseconds = get('cro-miliseconds')
+        const spanHours = get('cro-hours') as HTMLElement
+        const spanMinutes = get('cro-minutes') as HTMLElement
+        const spanSeconds = get('cro-seconds') as HTMLElement
+        const spanMiliseconds = get('cro-miliseconds') as HTMLElement
         spanMiliseconds.innerText = String(this.miliseconds).padStart(3, '0')
         spanHours.innerText = formatTime(this.hours)
         spanMinutes.innerText = formatTime(this.minutes)
@@ -57,7 +74,7 @@ const Cronometro = {
     },
     play(){
         //clearInterval(this.interval)
-        this.pausedTime += new Date() - this.pausedStart 
+        this.pausedTime += Number(new Date()) - Number(this.pausedStart)
         this.pausedStart = 0
         this.interval = setInterval(() => {
             this.updateTime()
