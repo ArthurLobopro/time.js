@@ -10,22 +10,21 @@ relogio.init()
 //Detecção de eventos
 
 //Menu de funções
-const list = document.querySelectorAll("li") as any
-for (let e of list) {
-    e.onclick = (event: any) => {
+const list = document.querySelectorAll("li") as NodeListOf<HTMLLIElement>
+list.forEach( li => {
+    li.onclick = (event: any) => {
         const view = [get("relogio"), get("cronometro"), get("regressivo")]
         view.forEach( (el: any) => el.style.display = "none")
         const name = event.target.dataset.name
         const element = get(name) as any
         element.style.display = ""
-        for (let e of list) {
-            e.classList.remove('clicked')
-        }
+        list.forEach(li => li.classList.remove('clicked'))
         event.target.classList.add("clicked")
     }
-}
+});
 
-Cronometro
+
+//Cronometro
 const croMainButton = get('cro-init')
 const croResetButton = get('cro-reset')
 
