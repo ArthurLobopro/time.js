@@ -8,7 +8,7 @@ const make_header = () => {
     header.innerHTML = `
     <div class="left">
         <div id="window-icon"></div>
-        <div id="window-name"></div>
+        <div id="window-name">${(document.querySelector('title') as HTMLTitleElement).innerText}</div>
     </div>
     <div class="right">
         <div>
@@ -23,4 +23,4 @@ const make_header = () => {
     </div>`
     return header
 }
-module.exports = make_header
+export default make_header

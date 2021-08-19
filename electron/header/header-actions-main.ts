@@ -1,13 +1,13 @@
-const { ipcMain, BrowserWindow } = require("electron")
+import { ipcMain, BrowserWindow } from "electron"
 
 function setWindowActions(){
     ipcMain.on('minimize',(event,arg)=>{
-        const win = BrowserWindow.getFocusedWindow()
+        const win = BrowserWindow.getFocusedWindow() as BrowserWindow
         win.minimize()
     })
     
     ipcMain.on('expand', (event,arg) => {
-        const win = BrowserWindow.getFocusedWindow()
+        const win = BrowserWindow.getFocusedWindow() as BrowserWindow
         if(win.isMaximized()){
             win.restore()
         }else{
@@ -16,9 +16,9 @@ function setWindowActions(){
     })
     
     ipcMain.on('close',(event,arg) => {
-        const win = BrowserWindow.getFocusedWindow()
+        const win = BrowserWindow.getFocusedWindow() as BrowserWindow
         win.close()
     })
 }
 
-module.exports = setWindowActions()
+export default setWindowActions()
