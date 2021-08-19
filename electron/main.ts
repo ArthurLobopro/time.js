@@ -1,5 +1,5 @@
-const { app, BrowserWindow } = require("electron")
-const Path = require('path')
+import { app, BrowserWindow, ipcMain } from "electron"
+import Path from 'path'
 
 //Ações de Minimizar, fechar, maximizar
 require("./header/header-actions-main.js")
@@ -12,7 +12,6 @@ function mainWindow() {
         width: 600,
         height: 400,
         minHeight: 400,
-        offscreen: true,
         frame: false,
         icon: Path.join(__dirname,"../assets/icon32.png"),
         webPreferences:{
@@ -39,7 +38,8 @@ app.on('activate', () => {
     }
 })
 
+
 // Faz com que o programa não inicie várias vezes durante a instalação
 if (require('electron-squirrel-startup')){
-    return app.quit();
+    app.quit();
 }
