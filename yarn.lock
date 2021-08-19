@@ -13,7 +13,7 @@
     ora "^5.0.0"
     pretty-ms "^7.0.0"
 
-"@electron-forge/cli@^6.0.0-beta.54":
+"@electron-forge/cli@^6.0.0-beta.59":
   version "6.0.0-beta.59"
   resolved "https://registry.yarnpkg.com/@electron-forge/cli/-/cli-6.0.0-beta.59.tgz#e6a5d277685037f86eca8da9923d6a3742d282b0"
   integrity sha512-cFYnr5LKi+Hg+rzhL2OZq5S7vlqzNS8rlQzXiYtv4Ft6BY27CTJ8mz76nAxgjRFv0/rDUyKTY2NZUOPeztziMQ==
@@ -144,7 +144,7 @@
     fs-extra "^10.0.0"
     which "^2.0.2"
 
-"@electron-forge/maker-deb@^6.0.0-beta.54":
+"@electron-forge/maker-deb@^6.0.0-beta.59":
   version "6.0.0-beta.59"
   resolved "https://registry.yarnpkg.com/@electron-forge/maker-deb/-/maker-deb-6.0.0-beta.59.tgz#13a20011062a49c2d99f1adf23ce043202ef988c"
   integrity sha512-HrdUWajIA5Vis7WFSjAjzxX3M+fhHU2Di22xEHZEi9Ya+qpJf9U/MQjzf5Etc5tVgAtfcIL5+lFj0/KEdNYu0g==
@@ -154,7 +154,7 @@
   optionalDependencies:
     electron-installer-debian "^3.0.0"
 
-"@electron-forge/maker-rpm@^6.0.0-beta.54":
+"@electron-forge/maker-rpm@^6.0.0-beta.59":
   version "6.0.0-beta.59"
   resolved "https://registry.yarnpkg.com/@electron-forge/maker-rpm/-/maker-rpm-6.0.0-beta.59.tgz#325d439ae15969e555258d3a76001c1474b73282"
   integrity sha512-IreCOOEmcZ1jgAmpKz4fWGKpe+cmiIYNOn2+MgL5hcF0/z+Y+YRsWn+VOAUSm0eIYn0/8pTY6ZVp7WUb2F6D7w==
@@ -164,7 +164,7 @@
   optionalDependencies:
     electron-installer-redhat "^3.2.0"
 
-"@electron-forge/maker-squirrel@^6.0.0-beta.54":
+"@electron-forge/maker-squirrel@^6.0.0-beta.59":
   version "6.0.0-beta.59"
   resolved "https://registry.yarnpkg.com/@electron-forge/maker-squirrel/-/maker-squirrel-6.0.0-beta.59.tgz#24debb74786181004950e7ef63008aefa9b22290"
   integrity sha512-sfTY40iGFaUVb6I/S/NR2w8nfFeYJHCKnsukDuJrqto9rYM52uOkrwIMG2TOiOil+dBfC+//WCz4zW4pHDAkqw==
@@ -175,7 +175,7 @@
   optionalDependencies:
     electron-winstaller "^5.0.0"
 
-"@electron-forge/maker-zip@^6.0.0-beta.54":
+"@electron-forge/maker-zip@^6.0.0-beta.59":
   version "6.0.0-beta.59"
   resolved "https://registry.yarnpkg.com/@electron-forge/maker-zip/-/maker-zip-6.0.0-beta.59.tgz#d59c6a094ade2278d29edf423ed9242b03e17ba6"
   integrity sha512-JDRfhuCPIT0k2S2mMKMj4BfcIAvDlMvBHwf2ERp2FbroCdlKnL5taYHNLNlGBldVjNqNuees1S3cQnLh+4rLag==
