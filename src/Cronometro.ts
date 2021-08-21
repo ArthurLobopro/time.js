@@ -1,5 +1,4 @@
-const get = (id: string) => document.getElementById(id)
-const formatTime = (time: any) => String(time).padStart(2, '0')
+import { formatTime, get } from "./Util";
 
 interface Cronometro {
     miliseconds: number
@@ -55,11 +54,11 @@ const Cronometro: Cronometro = {
         this.hours = hours
     },
     updateView(){
-        const spanHours = get('cro-hours') as HTMLElement
-        const spanMinutes = get('cro-minutes') as HTMLElement
-        const spanSeconds = get('cro-seconds') as HTMLElement
-        const spanMiliseconds = get('cro-miliseconds') as HTMLElement
-        spanMiliseconds.innerText = String(this.miliseconds).padStart(3, '0')
+        const spanHours = get('cro-hours') 
+        const spanMinutes = get('cro-minutes') 
+        const spanSeconds = get('cro-seconds')
+        const spanMiliseconds = get('cro-miliseconds')
+        spanMiliseconds.innerText = formatTime(this.miliseconds,3)
         spanHours.innerText = formatTime(this.hours)
         spanMinutes.innerText = formatTime(this.minutes)
         spanSeconds.innerText = formatTime(this.seconds)

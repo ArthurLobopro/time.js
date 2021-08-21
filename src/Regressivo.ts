@@ -1,6 +1,6 @@
 import alert from "./browser-functions/alert"
-const get = (id: string) => document.getElementById(id) as HTMLElement
-const formatTime = (time: string | number) => String(time).padStart(2, '0')
+import { formatTime, get } from "./Util"
+
 
 //Controladores
 const regMainButton = get("reg-init")
@@ -149,4 +149,3 @@ const Regressivo: Regressivo = {
         regMainButton.onclick = newreg
     }
 }
-// export { Regressivo }

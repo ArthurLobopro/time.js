@@ -7,16 +7,14 @@ const get = (id: string) => document.getElementById(id) as HTMLElement
 const relogio = new Relogio()
 relogio.init()
 
-//Detecção de eventos
-
 //Menu de funções
 const list = document.querySelectorAll("li") as NodeListOf<HTMLLIElement>
 list.forEach( li => {
     li.onclick = (event: any) => {
         const view = [get("relogio"), get("cronometro"), get("regressivo")]
-        view.forEach( (el: any) => el.style.display = "none")
+        view.forEach( (el: HTMLElement) => el.style.display = "none")
         const name = event.target.dataset.name
-        const element = get(name) as any
+        const element = get(name)
         element.style.display = ""
         list.forEach(li => li.classList.remove('clicked'))
         event.target.classList.add("clicked")

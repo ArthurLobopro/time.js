@@ -1,5 +1,4 @@
-const get = (id: string) => document.getElementById(id) as HTMLElement
-const formatTime = (time: string | number) => String(time).padStart(2, '0')
+import { formatTime, get } from "./Util";
 
 class Relogio {
     interval:  any = null
@@ -22,5 +21,4 @@ class Relogio {
     }
 }
 
-//module.exports = { Relogio }
 export { Relogio }

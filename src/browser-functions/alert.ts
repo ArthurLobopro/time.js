@@ -1,6 +1,7 @@
 import { ipcRenderer } from "electron"
 import path from 'path'
 import injectCSS from "../../electron/cssInject"
+import { get } from "../Util"
 
 
 const target = document.body
@@ -26,7 +27,7 @@ function alert({title, text, center = true, animation = true}: alertArgs) {
     </div>`
     target.appendChild(div)
     const removeAlert = () => {target.removeChild(div)}
-    (document.getElementById("remove-alert") as HTMLElement).onclick = removeAlert
+    get("remove-alert").onclick = removeAlert
 }
 
 const appPath = ipcRenderer.sendSync('request-app-path')
